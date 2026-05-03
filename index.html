@@ -1170,11 +1170,234 @@ const DSM_DATA={chapters:[
    tree:{question:"¿Declive cognitivo moderado respecto al nivel previo en ≥1 dominio, documentado objetivamente?",yes:{question:"¿Las AIVD (pagar facturas, tomar medicación) están preservadas aunque con mayor esfuerzo?",yes:{question:"¿No ocurre en contexto de delirium ni se explica por TDM u otro trastorno mental?",yes:{result:"✓ TRASTORNO NEUROCOGNITIVO LEVE (MCI) — Especificar etiología probable y monitorizar evolución"},no:{result:"✗ Explorar seudodemencia depresiva o delirium"}},no:{result:"✗ Si hay interferencia en AIVD → Trastorno Neurocognitivo MAYOR (Demencia)"}},no:{result:"✗ Sin declive objetivo — quejas subjetivas sin déficit (queja cognitiva subjetiva)"}}
   }
 ]},
-// ── CAPÍTULOS PENDIENTES
-{id:"paraphilic",name:"Trastornos Parafílicos",emoji:"🔒",color:"#8b949e",disorders:[]},
-{id:"elimination",name:"Trastornos de la Excreción",emoji:"💧",color:"#39d3bb",disorders:[]},
-{id:"movement",name:"Trastornos del Movimiento Inducidos por Medicamentos",emoji:"💊",color:"#d29922",disorders:[]},
-{id:"other",name:"Otros Trastornos Mentales",emoji:"📋",color:"#8b949e",disorders:[]}
+// ── 19. PARAFÍLICOS
+{id:"paraphilic",name:"Trastornos Parafílicos",emoji:"🔒",color:"#8b949e",disorders:[
+  {id:"voyeuristic",name:"Trastorno Voyeurista",icd10:"F65.3",dsm_code:"302.82",age:["adult"],
+   criteria:[
+    {label:"A",text:"Durante un período de al menos seis meses, excitación sexual intensa y recurrente derivada de la observación de una persona desprevenida que está desnuda, desnudándose o manteniendo relaciones sexuales, manifestada por fantasías, deseos irrefrenables o comportamientos."},
+    {label:"B",text:"El individuo ha dado satisfacción a estos deseos irrefrenables sexuales con una persona que no ha dado su consentimiento, o los deseos irrefrenables o fantasías causan malestar clínicamente significativo o deterioro en lo social, laboral u otras áreas importantes del funcionamiento."}
+   ],
+   specifiers:[
+    {name:"En un entorno controlado",desc:"Este especificador se aplica principalmente a individuos que viven en instituciones o en otros entornos donde las oportunidades de involucrarse en conductas voyeuristas son restringidas."},
+    {name:"En remisión total",desc:"El individuo no ha dado satisfacción a los deseos irrefrenables con una persona que no da su consentimiento y no ha experimentado malestar ni deterioro durante al menos cinco años mientras vive en un entorno no controlado."}
+   ],
+   features:{
+    prevalence:"La prevalencia máxima estimada en la población adulta es del 12% en varones y del 4% en mujeres. Es el más frecuente de los trastornos parafílicos en muestras forenses.",
+    course:"El inicio suele ser antes de los 15 años. El curso tiende a ser crónico. La mayoría de los individuos que observan a personas sin consentimiento no buscan tratamiento voluntariamente.",
+    risk:"Hipersexualidad, abuso de sustancias, antecedentes de abuso sexual en la infancia, actitudes antisociales.",
+    differential:"• Conducta voyeurista sin trastorno (sin malestar ni deterioro)\n• Trastorno de personalidad antisocial\n• Trastorno por consumo de sustancias\n• Trastorno maníaco (conducta sexual desinhibida en episodio)"
+   },
+   tree:{question:"¿Excitación sexual intensa y recurrente por observar personas desprevenidas desnudas o en actividad sexual ≥6 meses?",yes:{question:"¿Ha actuado sobre estas fantasías sin consentimiento O causan malestar/deterioro significativo?",yes:{result:"✓ TRASTORNO VOYEURISTA — Especificar: en entorno controlado / en remisión total"},no:{result:"✗ Parafilia voyeurista sin trastorno — fantasías sin malestar ni actos no consensuados"}},no:{result:"✗ Duración o intensidad insuficiente"}}
+  },
+  {id:"exhibitionistic",name:"Trastorno Exhibicionista",icd10:"F65.2",dsm_code:"302.4",age:["adult"],
+   criteria:[
+    {label:"A",text:"Durante un período de al menos seis meses, excitación sexual intensa y recurrente derivada de la exposición de los propios genitales a una persona desprevenida, manifestada por fantasías, deseos irrefrenables o comportamientos."},
+    {label:"B",text:"El individuo ha dado satisfacción a estos deseos irrefrenables con una persona que no ha dado su consentimiento, o los deseos irrefrenables o fantasías causan malestar clínicamente significativo o deterioro en lo social, laboral u otras áreas importantes del funcionamiento."}
+   ],
+   specifiers:[
+    {name:"Sexualmente excitado por la exposición a personas prepúberes",desc:""},
+    {name:"Sexualmente excitado por la exposición a personas físicamente maduras",desc:""},
+    {name:"Sexualmente excitado por la exposición a personas de cualquier edad",desc:""},
+    {name:"En un entorno controlado / En remisión total",desc:"Igual que en otros trastornos parafílicos."}
+   ],
+   features:{
+    prevalence:"En muestras de delincuentes sexuales, el exhibicionismo es el delito sexual más frecuente. Se estima que el 2–4% de los varones adultos ha tenido fantasías exhibicionistas.",
+    course:"Inicio en la adolescencia o inicio de la adultez. Puede ser episódico o crónico. La conducta suele aumentar en períodos de estrés.",
+    risk:"Rasgos de personalidad antisocial, hipersexualidad, abuso de alcohol, problemas en las relaciones íntimas.",
+    differential:"• Exhibicionismo sin trastorno (sin malestar ni actos)\n• Manía con desinhibición sexual\n• Demencia con desinhibición\n• Trastorno antisocial de la personalidad"
+   },
+   tree:{question:"¿Excitación sexual intensa y recurrente por exposición de genitales a personas desprevenidas ≥6 meses?",yes:{question:"¿Ha actuado sin consentimiento O causa malestar/deterioro?",yes:{result:"✓ TRASTORNO EXHIBICIONISTA — Especificar: tipo de víctima objetivo y remisión"},no:{result:"✗ Parafilia exhibicionista sin trastorno"}},no:{result:"✗ No cumple criterio A"}}
+  },
+  {id:"pedophilic",name:"Trastorno Pedofílico",icd10:"F65.4",dsm_code:"302.2",age:["adult"],
+   criteria:[
+    {label:"A",text:"Durante un período de al menos seis meses, fantasías sexuales intensas y recurrentes, deseos irrefrenables sexuales, o comportamientos que implican actividad sexual con uno o más niños prepúberes (generalmente de 13 años o menos)."},
+    {label:"B",text:"El individuo ha dado satisfacción a estos deseos irrefrenables sexuales, o los deseos irrefrenables o fantasías causan malestar notable o dificultades interpersonales."},
+    {label:"C",text:"El individuo tiene al menos 16 años y es al menos 5 años mayor que el niño o los niños del Criterio A. Nota: no incluir a un individuo en las últimas etapas de la adolescencia que mantiene una relación sexual en curso con una persona de 12 o 13 años."}
+   ],
+   specifiers:[
+    {name:"Tipo exclusivo",desc:"Atraído solo por niños."},
+    {name:"Tipo no exclusivo",desc:"Atraído también por adultos."},
+    {name:"Atraído sexualmente por varones / por mujeres / por ambos sexos",desc:""},
+    {name:"Limitado al incesto",desc:""}
+   ],
+   features:{
+    prevalence:"La prevalencia en la población general se estima entre el 1 y el 5% en varones. Es considerablemente menos frecuente en mujeres.",
+    course:"El trastorno pedofílico es crónico. El inicio de la atracción sexual por niños suele producirse durante la adolescencia.",
+    risk:"Abuso sexual en la infancia, bajo CI, características neurológicas atípicas. Alta tasa de reincidencia sin tratamiento.",
+    differential:"• Conducta de abuso sexual sin parafilia pedofílica (oportunista)\n• Trastorno antisocial de la personalidad\n• Consumo de sustancias que disminuye el control de impulsos\n• Demencia con desinhibición"
+   },
+   tree:{question:"¿Fantasías sexuales intensas/recurrentes, deseos o comportamientos con niños prepúberes ≥6 meses?",yes:{question:"¿El individuo tiene ≥16 años y es ≥5 años mayor que las víctimas objetivo?",yes:{question:"¿Ha actuado sobre estas fantasías O causan malestar/dificultades interpersonales?",yes:{result:"✓ TRASTORNO PEDOFÍLICO — Especificar: exclusivo/no exclusivo, sexo de los niños, incesto"},no:{result:"✗ Evaluar si hay malestar subjetivo o riesgo de actuación"}},no:{result:"✗ No cumple criterio C (edad)"}},no:{result:"✗ No cumple criterio A"}}
+  },
+  {id:"fetishistic",name:"Trastorno Fetichista",icd10:"F65.0",dsm_code:"302.81",age:["adult"],
+   criteria:[
+    {label:"A",text:"Durante un período de al menos seis meses, excitación sexual intensa y recurrente mediante el uso de objetos inanimados o un foco muy específico en partes del cuerpo no genitales, manifestada por fantasías, deseos irrefrenables o comportamientos."},
+    {label:"B",text:"Las fantasías, los deseos irrefrenables sexuales o los comportamientos causan malestar clínicamente significativo o deterioro en lo social, laboral u otras áreas importantes del funcionamiento."},
+    {label:"C",text:"Los objetos fetiches no están limitados a prendas de vestir utilizadas para travestirse (como en el trastorno de travestismo) o a dispositivos diseñados con el propósito de estimular los genitales (p. ej., vibrador)."}
+   ],
+   specifiers:[
+    {name:"Parte(s) del cuerpo",desc:"Especificar el foco de atracción (pies, cabello, etc.)."},
+    {name:"Objeto(s) inanimado(s)",desc:"Especificar el tipo de objeto (zapatos, ropa interior, cuero, etc.)."},
+    {name:"Otro",desc:""},
+    {name:"En un entorno controlado / En remisión total",desc:""}
+   ],
+   features:{
+    prevalence:"Se desconoce la prevalencia exacta. Es más frecuente en varones. El fetichismo hacia objetos es uno de los focos parafílicos más comunes.",
+    course:"El inicio suele ser en la adolescencia. El curso es generalmente crónico.",
+    risk:"No existen factores de riesgo claramente establecidos. Puede asociarse a condicionamiento erótico temprano con objetos específicos.",
+    differential:"• Parafilia fetichista sin trastorno (sin malestar ni deterioro)\n• Trastorno de travestismo (el objeto es la prenda vestida)\n• TOC (pensamientos intrusivos sobre objetos sin excitación sexual)"
+   },
+   tree:{question:"¿Excitación sexual intensa y recurrente mediante objetos inanimados o partes del cuerpo no genitales ≥6 meses?",yes:{question:"¿Causa malestar clínicamente significativo o deterioro funcional?",yes:{question:"¿No limitado a prendas de travestismo ni dispositivos de estimulación genital?",yes:{result:"✓ TRASTORNO FETICHISTA — Especificar foco (parte del cuerpo / objeto / otro)"},no:{result:"✗ Evaluar trastorno de travestismo si el foco son prendas de vestir usadas"}},no:{result:"✗ Parafilia fetichista sin trastorno — no requiere diagnóstico"}},no:{result:"✗ No cumple criterio A"}}
+  }
+]},
+// ── 20. EXCRECIÓN
+{id:"elimination",name:"Trastornos de la Excreción",emoji:"💧",color:"#39d3bb",disorders:[
+  {id:"enuresis",name:"Enuresis",icd10:"F98.0",dsm_code:"307.6",age:["child"],
+   criteria:[
+    {label:"A",text:"Emisión repetida de orina en la cama o en la ropa (sea voluntaria o intencionada)."},
+    {label:"B",text:"El comportamiento es clínicamente significativo según se manifiesta por una frecuencia de al menos dos veces por semana durante un mínimo de tres meses consecutivos, o por la presencia de malestar clínicamente significativo o deterioro en lo social, académico (laboral) u otras áreas importantes del funcionamiento."},
+    {label:"C",text:"La edad cronológica es de al menos cinco años (o nivel de desarrollo equivalente)."},
+    {label:"D",text:"El comportamiento no se puede atribuir a los efectos fisiológicos de una sustancia (p. ej., un diurético, un antipsicótico) ni a otra afección médica (p. ej., diabetes, espina bífida, trastorno convulsivo)."}
+   ],
+   specifiers:[
+    {name:"Solo nocturna",desc:"Emisión de orina únicamente durante el sueño nocturno. Este es el subtipo más frecuente."},
+    {name:"Solo diurna",desc:"Emisión de orina durante las horas de vigilia. También denominada incontinencia urinaria diurna."},
+    {name:"Nocturna y diurna",desc:"Combinación de ambos subtipos."}
+   ],
+   features:{
+    prevalence:"A los 5 años: 5–10% de los niños. A los 10 años: 3–5%. A los 15 años: 1%. Más frecuente en varones.",
+    course:"La enuresis primaria (nunca ha habido un período de continencia ≥6 meses) es más frecuente que la secundaria. La mayoría remite espontáneamente con la edad. La tasa de remisión espontánea es del 5–10% anual.",
+    risk:"Antecedentes familiares (riesgo del 44% si uno de los padres tuvo enuresis; 77% si ambos). Sueño profundo, poliuria nocturna, capacidad vesical reducida, retraso del desarrollo.",
+    differential:"• Polaquiuria / infección urinaria\n• Diabetes mellitus o insípida\n• Espina bífida / vejiga neurógena\n• Apnea del sueño (enuresis nocturna secundaria)\n• Trastorno por consumo de diuréticos"
+   },
+   tree:{question:"¿Emisión repetida de orina en cama o ropa ≥2 veces/semana durante ≥3 meses O con malestar/deterioro significativo?",yes:{question:"¿Edad ≥5 años (o nivel de desarrollo equivalente)?",yes:{question:"¿Descartadas causas médicas (diabetes, infección urinaria, vejiga neurógena) y fármacos?",yes:{result:"✓ ENURESIS — Especificar: solo nocturna / solo diurna / nocturna y diurna"},no:{result:"✗ Incontinencia urinaria secundaria — tratar causa médica subyacente"}},no:{result:"✗ No cumple criterio C — por debajo de la edad esperada para el control de esfínteres"}},no:{result:"✗ Frecuencia o duración insuficiente — considerar episodios aislados normales del desarrollo"}}
+  },
+  {id:"encopresis",name:"Encopresis",icd10:"F98.1",dsm_code:"307.7",age:["child"],
+   criteria:[
+    {label:"A",text:"Deposición repetida de heces en lugares inapropiados (p. ej., en la ropa o en el suelo), ya sea involuntaria o intencionada."},
+    {label:"B",text:"Al menos un episodio de este tipo al mes durante un mínimo de tres meses."},
+    {label:"C",text:"La edad cronológica es de al menos cuatro años (o nivel de desarrollo equivalente)."},
+    {label:"D",text:"El comportamiento no se puede atribuir a los efectos fisiológicos de una sustancia (p. ej., laxantes) ni a otra afección médica, excepto mediante un mecanismo que implique estreñimiento."}
+   ],
+   specifiers:[
+    {name:"Con estreñimiento e incontinencia por rebosamiento",desc:"Hay evidencia de estreñimiento en la exploración física o la anamnesis. Las heces en este subtipo suelen estar escasamente formadas, y las fugas pueden producirse durante el día y la noche. Este subtipo puede mejorar con el tratamiento del estreñimiento."},
+    {name:"Sin estreñimiento e incontinencia por rebosamiento",desc:"No hay evidencia de estreñimiento. Las heces suelen ser de forma y consistencia normales, y la deposición puede ser intermitente. Las heces pueden depositarse en un lugar prominente, pudiendo estar asociada con el trastorno negativista desafiante u otro trastorno del comportamiento."}
+   ],
+   features:{
+    prevalence:"Aproximadamente el 1% de los niños de 5 años. Más frecuente en varones (3–4:1).",
+    course:"Puede ser primaria (sin período previo de continencia fecal) o secundaria (aparece después de un período de continencia de al menos un año). La mayoría remite antes de la adolescencia.",
+    risk:"Estreñimiento crónico, fisuras anales, traumas o estrés psicosocial (inicio del cole, hermano recién nacido), abuso sexual, TND o TDAH comórbidos.",
+    differential:"• Estreñimiento funcional sin encopresis\n• Enfermedad de Hirschsprung\n• Alergia alimentaria con diarrea crónica\n• TND o TDAH con encopresis secundaria\n• Abuso sexual (sospechar si no hay estreñimiento y la conducta es intencionada)"
+   },
+   tree:{question:"¿Deposición repetida de heces en lugares inapropiados ≥1 vez/mes durante ≥3 meses?",yes:{question:"¿Edad ≥4 años (o nivel de desarrollo equivalente)?",yes:{question:"¿Descartadas causas médicas (excepto estreñimiento funcional)?",yes:{result:"✓ ENCOPRESIS — Especificar: con / sin estreñimiento e incontinencia por rebosamiento"},no:{result:"✗ Incontinencia fecal secundaria — tratar causa médica (Hirschsprung, etc.)"}},no:{result:"✗ No cumple criterio C — por debajo de la edad de control fecal esperada"}},no:{result:"✗ Frecuencia o duración insuficiente"}}
+  }
+]},
+// ── 21. MOVIMIENTO INDUCIDOS POR MEDICAMENTOS
+{id:"movement",name:"Trastornos del Movimiento Inducidos por Medicamentos y Otros Efectos Adversos",emoji:"💊",color:"#d29922",disorders:[
+  {id:"tardive_dyskinesia",name:"Discinesia Tardía",icd10:"G24.01",dsm_code:"333.85",age:["adult"],
+   criteria:[
+    {label:"Criterio principal",text:"Movimientos involuntarios, irregulares en su ritmo, de los músculos de la cara, las extremidades o el tronco que aparecen en asociación con el uso de medicamentos (p. ej., antagonistas de la dopamina) y que persisten durante al menos algunas semanas. Los movimientos faciales y de la boca son los más frecuentes e incluyen movimientos de succión o masticación de los labios, protrusión de la lengua, abultamiento de las mejillas y contorsiones de la mandíbula."},
+    {label:"Temporalidad",text:"La discinesia tardía aparece en el contexto del uso de un medicamento antagonista del receptor de dopamina (antipsicóticos típicos, metoclopramida, proclorperazina) o tras la reducción o interrupción de dicho medicamento. Los síntomas suelen aparecer después de al menos tres meses de exposición al fármaco (un mes en personas mayores de 60 años)."},
+    {label:"Exclusión",text:"Los movimientos no se deben a otra afección médica (p. ej., corea de Huntington, corea de Sydenham, lupus eritematoso sistémico, corea inducida por hormonas tiroideas) ni a otro trastorno del movimiento inducido por medicamentos (p. ej., acatisia aguda, distonía aguda)."}
+   ],
+   specifiers:[
+    {name:"Remisión",desc:"Los síntomas de discinesia tardía pueden mejorar o desaparecer si se suspende el medicamento causal, aunque en muchos casos persisten indefinidamente."}
+   ],
+   features:{
+    prevalence:"Ocurre en aproximadamente el 20–30% de los pacientes tratados con antipsicóticos de primera generación a largo plazo. Los antipsicóticos atípicos tienen menor riesgo pero no nulo.",
+    course:"La discinesia tardía puede aparecer después de meses o años de tratamiento con antagonistas dopaminérgicos. En algunos casos, los síntomas persisten o empeoran incluso tras la retirada del fármaco.",
+    risk:"Uso prolongado de antipsicóticos típicos (especialmente haloperidol), edad avanzada, sexo femenino, diagnóstico de trastorno del estado de ánimo, historia de efectos extrapiramidales previos, dosis altas.",
+    differential:"• Movimientos estereotipados primarios\n• Corea de Huntington\n• Distonía tardía\n• Acatisia tardía\n• Corea de Sydenham\n• Corea inducida por anticonceptivos orales"
+   },
+   tree:{question:"¿Movimientos involuntarios irregulares de cara, extremidades o tronco en paciente con exposición ≥3 meses a antagonistas dopaminérgicos?",yes:{question:"¿Persisten durante al menos algunas semanas?",yes:{question:"¿Descartadas otras causas de corea/discinesia (Huntington, Sydenham, LES)?",yes:{result:"✓ DISCINESIA TARDÍA — Revisar medicación, considerar reducción de dosis o cambio a antipsicótico atípico. Valorar valbenazina o deutetrabenazina"},no:{result:"✗ Movimientos involuntarios de otra etiología — evaluación neurológica"}},no:{result:"✗ Movimientos transitorios — posiblemente discinesia aguda o estereotipias"}},no:{result:"✗ Sin exposición a antagonistas dopaminérgicos — explorar trastorno del movimiento primario"}}
+  },
+  {id:"akathisia",name:"Acatisia Inducida por Medicamentos",icd10:"G25.71",dsm_code:"333.99",age:["adult"],
+   criteria:[
+    {label:"Criterio principal",text:"Quejas subjetivas de inquietud, a menudo acompañadas de los movimientos observados siguientes: balanceo de piernas, marcha en el lugar, movimiento de piernas al sentarse y incapacidad para sentarse o estar de pie quieto durante varios minutos. Los síntomas se desarrollan en asociación con el inicio del uso de un medicamento (p. ej., un antipsicótico) o tras un aumento de la dosis."},
+    {label:"Temporalidad",text:"La acatisia aguda aparece típicamente en las primeras semanas de tratamiento o tras aumentos de dosis. La acatisia tardía puede aparecer después de meses de tratamiento estable."},
+    {label:"Exclusión",text:"Los síntomas no se explican mejor por otro trastorno mental (p. ej., agitación psicomotora en el contexto de un episodio maníaco, TDM agitado) ni por un trastorno neurológico primario."}
+   ],
+   specifiers:[
+    {name:"Acatisia aguda",desc:"Aparece poco después del inicio o del aumento de dosis de un medicamento que actúa sobre los receptores de dopamina."},
+    {name:"Acatisia tardía",desc:"Aparece tras al menos tres meses de tratamiento estable con un medicamento antagonista de la dopamina."},
+    {name:"Acatisia de retirada",desc:"Aparece en el plazo de seis semanas tras la retirada o la reducción significativa de dosis de un agente dopaminérgico."}
+   ],
+   features:{
+    prevalence:"Se estima que afecta al 20–40% de los pacientes tratados con antipsicóticos de primera generación. Menor incidencia con antipsicóticos atípicos, pero no despreciable.",
+    course:"La acatisia aguda generalmente mejora con la reducción de dosis o el cambio de fármaco. La acatisia tardía puede persistir.",
+    risk:"Dosis altas de antipsicóticos, uso de antipsicóticos de alta potencia, aumento rápido de dosis, antecedentes de acatisia.",
+    differential:"• Síndrome de piernas inquietas (sin componente psíquico de inquietud, peor en reposo nocturno)\n• Ansiedad o agitación psicomotora del TDM o manía\n• Discinesia tardía (movimientos involuntarios vs. necesidad subjetiva de moverse)\n• Abstinencia de opiáceos o benzodiacepinas"
+   },
+   tree:{question:"¿Inquietud subjetiva intensa + necesidad de moverse (balanceo, marcha en el lugar) en paciente con antipsicóticos u otros antagonistas dopaminérgicos?",yes:{question:"¿Síntomas desarrollados al inicio o tras aumento de dosis del fármaco?",yes:{question:"¿No explicado mejor por agitación del trastorno mental subyacente u otro trastorno neurológico?",yes:{result:"✓ ACATISIA INDUCIDA POR MEDICAMENTOS — Especificar: aguda / tardía / de retirada. Considerar reducción de dosis, propranolol o benzodiacepinas"},no:{result:"✗ Agitación psicomotora del trastorno mental — revisar diagnóstico y tratamiento"}},no:{result:"✗ Relación temporal poco clara — explorar síndrome de piernas inquietas o ansiedad"}},no:{result:"✗ Sin componente subjetivo de inquietud — explorar discinesia tardía u otros trastornos del movimiento"}}
+  },
+  {id:"neuroleptic_malignant",name:"Síndrome Neuroléptico Maligno",icd10:"G21.0",dsm_code:"333.92",age:["adult"],
+   criteria:[
+    {label:"Criterio principal",text:"El síndrome neuroléptico maligno (SNM) es un efecto adverso potencialmente mortal asociado al uso de medicamentos antipsicóticos (neurolépticos) u otros antagonistas de la dopamina. Se caracteriza por la tétrada clásica de: (1) rigidez muscular grave, (2) fiebre alta, (3) inestabilidad autonómica (taquicardia, hipertensión o hipotensión lábil, diaforesis, sialorrea) y (4) alteración del nivel de conciencia (desde confusión hasta coma)."},
+    {label:"Hallazgos de laboratorio",text:"Elevación de la creatina-cinasa (CPK) sérica, a menudo en rangos extremadamente altos. Leucocitosis. Puede haber mioglobinuria con riesgo de insuficiencia renal aguda."},
+    {label:"Temporalidad",text:"Los síntomas generalmente aparecen en los primeros días o semanas tras el inicio del antipsicótico o el aumento de dosis, aunque pueden aparecer en cualquier momento durante el tratamiento."},
+    {label:"Urgencia",text:"El SNM es una emergencia médica que requiere ingreso hospitalario inmediato, retirada del agente causal y tratamiento de soporte intensivo."}
+   ],
+   specifiers:[{name:"Urgencia médica",desc:"No existen especificadores clínicos formales; el SNM se considera siempre una urgencia médica que requiere atención hospitalaria inmediata."}],
+   features:{
+    prevalence:"Ocurre en el 0,02–3% de los pacientes tratados con antipsicóticos. La tasa de mortalidad sin tratamiento puede alcanzar el 20–30%; con tratamiento adecuado se reduce al 5–11%.",
+    course:"Inicio agudo o subagudo, habitualmente dentro de los 7–10 primeros días de tratamiento. Sin tratamiento, la muerte puede ocurrir por insuficiencia respiratoria, fallo renal o arritmia cardíaca.",
+    risk:"Uso de antipsicóticos de alta potencia (haloperidol), dosis altas, incrementos rápidos de dosis, agitación o exhaustión física, deshidratación, antecedentes de SNM.",
+    differential:"• Hipertermia maligna (anestésicos inhalados)\n• Síndrome serotoninérgico (tremor, mioclonías, hiperreflexia > rigidez)\n• Encefalitis letárgica\n• Golpe de calor\n• Infecciones del SNC (meningitis, encefalitis)\n• Catatonía maligna"
+   },
+   tree:{question:"¿Tétrada de rigidez muscular + fiebre + inestabilidad autonómica + alteración de conciencia en paciente con antipsicóticos?",yes:{question:"¿CPK elevada y/o leucocitosis?",yes:{result:"⚠️ SÍNDROME NEUROLÉPTICO MALIGNO — URGENCIA MÉDICA: retirar antipsicótico, ingreso hospitalario inmediato, tratamiento de soporte (hidratación, dantroleno, bromocriptina)"},no:{result:"✗ Cuadro incompleto — vigilar estrechamente; descartar infección del SNC, golpe de calor o síndrome serotoninérgico"}},no:{result:"✗ Sin tétrada completa — revisar síndrome serotoninérgico, catatonía o hipertermia de otro origen"}}
+  }
+]},
+// ── 22. OTROS TRASTORNOS MENTALES
+{id:"other",name:"Otros Trastornos Mentales",emoji:"📋",color:"#8b949e",disorders:[
+  {id:"adjustment",name:"Trastorno de Adaptación (Trastorno Adaptativo)",icd10:"F43.2x",dsm_code:"309.xx",age:["child","adult"],
+   criteria:[
+    {label:"A",text:"Desarrollo de síntomas emocionales o del comportamiento en respuesta a un factor o factores de estrés identificables que se producen en los tres meses siguientes al inicio del factor(es) de estrés."},
+    {label:"B",text:"Estos síntomas o comportamientos se expresan clínicamente por uno de los siguientes ítems:",sub:[
+      {label:"1",text:"Malestar intenso desproporcionado a la gravedad o intensidad del factor de estrés, teniendo en cuenta el contexto externo y los factores culturales que podrían influir en la gravedad y la presentación de los síntomas."},
+      {label:"2",text:"Deterioro significativo en lo social, laboral u otras áreas importantes del funcionamiento."}
+    ]},
+    {label:"C",text:"La alteración relacionada con el estrés no cumple los criterios para otro trastorno mental y no es simplemente una exacerbación de un trastorno mental preexistente."},
+    {label:"D",text:"Los síntomas no representan el duelo normal."},
+    {label:"E",text:"Una vez que el factor de estrés o sus consecuencias han terminado, los síntomas no se mantienen durante más de seis meses adicionales."}
+   ],
+   specifiers:[
+    {name:"F43.21 Con estado de ánimo depresivo",desc:"El cuadro clínico se caracteriza principalmente por estado de ánimo deprimido, ganas de llorar o sentimientos de desesperanza."},
+    {name:"F43.22 Con ansiedad",desc:"El cuadro clínico se caracteriza principalmente por nerviosismo, preocupación, inquietud o ansiedad de separación."},
+    {name:"F43.23 Con ansiedad y estado de ánimo depresivo mixtos",desc:"El cuadro clínico se caracteriza por una combinación de depresión y ansiedad."},
+    {name:"F43.24 Con alteración de la conducta",desc:"El cuadro clínico se caracteriza principalmente por alteración de la conducta."},
+    {name:"F43.25 Con alteración mixta de las emociones y la conducta",desc:"El cuadro clínico se caracteriza por síntomas emocionales (p. ej., depresión, ansiedad) y alteración de la conducta."},
+    {name:"F43.20 Sin especificar",desc:"Reacciones de inadaptación que no se pueden clasificar como uno de los subtipos específicos del trastorno de adaptación."},
+    {name:"Agudo",desc:"Si la alteración dura menos de seis meses."},
+    {name:"Persistente (crónico)",desc:"Si la alteración dura seis meses o más."}
+   ],
+   features:{
+    prevalence:"El trastorno de adaptación es uno de los diagnósticos más frecuentes en la atención primaria y en los servicios de salud mental (5–20% de los pacientes ambulatorios). Puede afectar a cualquier edad.",
+    course:"Por definición, los síntomas no duran más de seis meses después de que el factor de estrés haya cesado. La mayoría se recupera completamente. Una minoría progresa hacia un TDM o TAG.",
+    risk:"Factores de estrés graves o múltiples (pérdida de empleo, divorcio, enfermedad médica grave, catástrofe natural), falta de apoyo social, vulnerabilidad psicológica previa.",
+    differential:"• TDM (cumple todos los criterios diagnósticos independientemente del estrés)\n• TEPT o TEA (requieren exposición a trauma específico)\n• TAG (ansiedad previa al estresor)\n• Duelo normal\n• Trastorno de la personalidad\n• Trastorno por consumo de sustancias"
+   },
+   tree:{question:"¿Síntomas emocionales o conductuales en respuesta a factor de estrés identificable dentro de los 3 meses siguientes a su inicio?",yes:{question:"¿Malestar desproporcionado al estresor O deterioro funcional significativo?",yes:{question:"¿No cumple criterios de otro trastorno mental específico y no es exacerbación de trastorno previo?",yes:{question:"¿Síntomas no persisten más de 6 meses tras cesar el estresor?",yes:{result:"✓ TRASTORNO DE ADAPTACIÓN — Especificar subtipo (depresivo / ansioso / mixto / conductual / mixto emocional-conductual)"},no:{result:"✗ Si persiste >6 meses → reevaluar hacia TDM, TAG u otro diagnóstico"}},no:{result:"✗ Puede cumplir criterios de TDM, TAG, TEPT u otro — reevaluar"}},no:{result:"✗ Sin malestar desproporcionado ni deterioro — respuesta adaptativa normal al estrés"}},no:{result:"✗ Sin estresor identificable o fuera de los 3 meses — explorar TDM, TAG u otro"}}
+  },
+  {id:"factitious",name:"Trastorno Facticio",icd10:"F68.10",dsm_code:"300.19",age:["adult"],
+   criteria:[
+    {label:"A",text:"Falsificación de signos o síntomas físicos o psicológicos, o inducción de lesión o enfermedad, asociada con un engaño identificado."},
+    {label:"B",text:"El individuo se presenta a sí mismo ante los demás como enfermo, incapacitado o lesionado."},
+    {label:"C",text:"El comportamiento engañoso es evidente incluso en ausencia de incentivos externos obvios."},
+    {label:"D",text:"El comportamiento no se explica mejor por otro trastorno mental, como el trastorno delirante u otro trastorno psicótico."}
+   ],
+   specifiers:[
+    {name:"Episodio único",desc:""},
+    {name:"Episodios recurrentes",desc:"Dos o más episodios de falsificación de enfermedad y/o inducción de lesión."},
+    {name:"Trastorno facticio aplicado a otro (antes síndrome de Munchausen por poderes)",desc:"Falsificación de signos o síntomas físicos o psicológicos, o inducción de lesión o enfermedad, en otra persona (víctima). El individuo que realiza la falsificación recibe el diagnóstico; la víctima puede recibir el diagnóstico de abuso en caso de que corresponda."}
+   ],
+   features:{
+    prevalence:"Se desconoce la prevalencia exacta dado el carácter engañoso del trastorno. Se estima en el 1% de los pacientes hospitalizados.",
+    course:"El trastorno facticio puede tener una presentación única o episódica a lo largo de la vida. Algunos individuos se convierten en «peregrinos médicos» que consultan en múltiples centros.",
+    risk:"Trabajo en el ámbito sanitario, antecedentes de trastorno de la personalidad, historia de abuso o negligencia en la infancia, experiencias previas de enfermedad o hospitalización.",
+    differential:"• Trastorno de síntomas somáticos (sin engaño deliberado)\n• Trastorno de conversión (síntomas reales sin intencionalidad)\n• Simulación (con incentivo externo identificable: pensiones, evitar juicio)\n• Trastorno de la personalidad antisocial\n• Trastorno delirante (creencias sinceras de estar enfermo)"
+   },
+   tree:{question:"¿Falsificación de síntomas/signos o inducción de enfermedad/lesión con engaño deliberado identificado?",yes:{question:"¿El individuo se presenta como enfermo sin incentivos externos obvios (sin beneficio legal, económico directo)?",yes:{question:"¿No explicado mejor por trastorno delirante u otro trastorno psicótico?",yes:{result:"✓ TRASTORNO FACTICIO — Especificar: episodio único / episodios recurrentes / aplicado a otro (Munchausen por poderes)"},no:{result:"✗ Si hay creencia sincera → explorar trastorno delirante somático"}},no:{result:"✗ Si hay incentivo externo identificable → considerar simulación (no es un trastorno mental)"}},no:{result:"✗ Sin engaño deliberado — explorar trastorno de síntomas somáticos o conversión"}}
+  }
+]}
 ]};
 
 // ═══════════════════════════════════════════════════════
